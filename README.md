@@ -1,4 +1,9 @@
 # MaterialTextView
+<p>
+  <img src="https://img.shields.io/badge/API-15%2B-brightgreen.svg"/>
+  <a href="https://jitpack.io/#onemandan/MaterialTextView" rel="nofollow"><img alt="Release" src="https://jitpack.io/v/onemandan/MaterialTextView.svg" style="max-width:100%;"></a>
+</p>
+
 Material Design Text View that is displayed in a translucent box.  Based on the [Material Design guidelines](https://material.io/design/components/text-fields.html#usage).
 
 <img src="https://github.com/onemandan/MaterialTextView/blob/master/MaterialTextView.png" height="431px"/>
