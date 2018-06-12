@@ -17,7 +17,7 @@ To get MaterialTextView into your project, add the repository to your build.grad
 
 #### Gradle
 1. Add the JitPack repository to your projects build.gradle:
-```
+```gradle
 allprojects {
   repositories {
     ...
@@ -27,7 +27,7 @@ allprojects {
 ```
 
 2. Add the dependency to your modules build.gradle :
-```
+```gradle
 dependencies {
   implementation 'com.github.onemandan:MaterialTextView:0.0.1'
 }
@@ -35,7 +35,7 @@ dependencies {
 
 #### Maven
 1. Add the JitPack repository to your build file:
-```
+```xml
 <repositories>
   <repository>
     <id>jitpack.io</id>
@@ -45,7 +45,7 @@ dependencies {
 ```
 
 2. Add the dependency:
-```
+```xml
 <dependency>
   <groupId>com.github.onemandan</groupId>
   artifactId>MaterialTextView</artifactId>
@@ -77,7 +77,7 @@ dependencies {
 
 #### Listeners
 You can implement a click listener to the MaterialTextView:
-```
+```java
 materialTextView.setOnClickListener(new View.OnClickListener() {
   @Override
   public void onClick(View v) { ... }
@@ -85,13 +85,13 @@ materialTextView.setOnClickListener(new View.OnClickListener() {
 ```
 
 In the event a click listener is added, the following attributes are set to the View:
-```
+```java
 setForeground(...[?selectableItemBackground]...);
 setClickable(true);
 setFocusable(true);
 ```
 
 When removing the click listener, the attributes of the View are removed and the foreground restored to the previous state.  To Remove the click listener:
-```
+```java
 materialTextView.setOnClickListener(null);
 ```
