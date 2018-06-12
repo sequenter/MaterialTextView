@@ -52,3 +52,46 @@ dependencies {
   <version>0.0.1</version>
 </dependency>
 ```
+
+## Attributes & Methods
+
+#### Text
+| Attribute | Method Counterparts | Description | Default |
+| --------- | ------------------- | ----------- | ------- |
+| app:mtv_labelText | ```void setLabelText(CharSequence text)``` </br> ```CharSequence getLabelText()``` | The text for the label at the top of the view | |
+| app:mtv_contentText | ```void setContentText(CharSequence text)``` </br> ```CharSequence getContentText()``` | The text for the content of the view | |
+| app:mtv_helperText | ```void setHelperText(CharSequence text)``` </br> ```CharSequence getHelperText()``` | The text for the helper at the bottom of the view | |
+
+#### Colour
+| Attribute | Method Counterparts | Description | Default |
+| --------- | ------------------- | ----------- | ------- |
+| app:mtv_labelTextColour | | The text colour for the label at the top of the view | ?android:textColorSecondary |
+| app:mtv_contenxtTextColour | | The text colour for the content of the view | ?android:textColorPrimary |
+| app:mtv_helperTextColour | | The text colour for the helper at the bottom of the view | ?colorAccent |
+
+#### Miscellaneous 
+| Attribute | Method Counterparts | Description | Default |
+| --------- | ------------------- | ----------- | ------- |
+| app:mtv_keepLabelSpacing | | In the event that the label text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | true |
+| app:mtv_keepHelperSpacing | | In the event that the helper text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
+
+#### Listeners
+You can implement a click listener to the MaterialTextView:
+```
+materialTextView.setOnClickListener(new View.OnClickListener() {
+  @Override
+  public void onClick(View v) { ... }
+});
+```
+
+In the event a click listener is added, the following attributes are set to the View:
+```
+setForeground(...[?selectableItemBackground]...);
+setClickable(true);
+setFocusable(true);
+```
+
+When removing the click listener, the attributes of the View are removed and the foreground restored to the previous state.  To Remove the click listener:
+```
+materialTextView.setOnClickListener(null);
+```
