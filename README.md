@@ -1,6 +1,6 @@
 # MaterialTextView
 <p>
-  <img src="https://img.shields.io/badge/API-15%2B-brightgreen.svg"/>
+  <a href="https://jitpack.io/#onemandan/MaterialTextView" rel="nofollow"><img alt="API" src="https://img.shields.io/badge/API-15%2B-brightgreen.svg" style="max-width:100%;"></a>
   <a href="https://jitpack.io/#onemandan/MaterialTextView" rel="nofollow"><img alt="Release" src="https://jitpack.io/v/onemandan/MaterialTextView.svg" style="max-width:100%;"></a>
 </p>
 
