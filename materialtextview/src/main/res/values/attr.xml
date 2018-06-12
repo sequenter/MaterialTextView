@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MaterialTextView">
+        <attr name="mtv_labelText" format="string" />
+        <attr name="mtv_contentText" format="string" />
+        <attr name="mtv_helperText" format="string" />
+        <attr name="mtv_labelTextColor" format="color|reference" />
+        <attr name="mtv_contentTextColor" format="color|reference" />
+        <attr name="mtv_helperTextColor" format="color|reference" />
+        <attr name="mtv_keepLabelSpacing" format="boolean"/>
+        <attr name="mtv_keepHelperSpacing" format="boolean"/>
+    </declare-styleable>
+
+</resources>
