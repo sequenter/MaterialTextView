@@ -58,21 +58,22 @@ dependencies {
 #### Text
 | Attribute | Method Counterparts | Description | Default |
 | --------- | ------------------- | ----------- | ------- |
-| app:mtv_labelText | ```void setLabelText(CharSequence text)``` </br> ```CharSequence getLabelText()``` | The text for the label at the top of the view | |
-| app:mtv_contentText | ```void setContentText(CharSequence text)``` </br> ```CharSequence getContentText()``` | The text for the content of the view | |
-| app:mtv_helperText | ```void setHelperText(CharSequence text)``` </br> ```CharSequence getHelperText()``` | The text for the helper at the bottom of the view | |
+| app:mtv_labelText | ```void setLabelText(CharSequence text)``` </br> ```CharSequence getLabelText()``` | The text for the label at the top of the view | Empty String |
+| app:mtv_contentText | ```void setContentText(CharSequence text)``` </br> ```CharSequence getContentText()``` | The text for the content of the view | Empty String |
+| app:mtv_helperText | ```void setHelperText(CharSequence text)``` </br> ```CharSequence getHelperText()``` | The text for the helper at the bottom of the view | Empty String |
 
 #### Colour
 | Attribute | Method Counterparts | Description | Default |
 | --------- | ------------------- | ----------- | ------- |
-| app:mtv_labelTextColour | | The text colour for the label at the top of the view | ?android:textColorSecondary |
-| app:mtv_contenxtTextColour | | The text colour for the content of the view | ?android:textColorPrimary |
-| app:mtv_helperTextColour | | The text colour for the helper at the bottom of the view | ?colorAccent |
+| app:mtv_labelTextColour | ```void setLabelTextColour(int colour)``` </br> ```int getLabelTextColour()``` | The text colour for the label at the top of the view | ?android:textColorSecondary |
+| app:mtv_contenxtTextColour | ```void setContentTextColour(int colour)``` </br> ```int getContentTextColour()``` | The text colour for the content of the view | ?android:textColorPrimary |
+| app:mtv_helperTextColour | ```void setHelperTextColour(int colour)``` </br> ```int getHelperTextColour()``` | The text colour for the helper at the bottom of the view | ?colorAccent |
+| app:mtv_backgroundColour | ```void setBackgroundColour(int colour)``` </br> ```int getBackgroundColour()``` | The colour of the MaterialTextView root view | 6% Black (#0f000000) |
 
 #### Miscellaneous 
 | Attribute | Method Counterparts | Description | Default |
 | --------- | ------------------- | ----------- | ------- |
-| app:mtv_keepLabelSpacing | | In the event that the label text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | true |
+| app:mtv_keepLabelSpacing | | In the event that the label text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
 | app:mtv_keepHelperSpacing | | In the event that the helper text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
 
 #### Listeners
