@@ -53,6 +53,13 @@ dependencies {
 </dependency>
 ```
 
+## Updates
+
+#### 0.0.2
+- Edited *mtv_keepLabelSpacing* default to **false**
+- Added *mtv_backgroundColour* and accessors
+- Added Label/Content/Helper text colour accessors
+
 ## Attributes & Methods
 
 #### Text
