@@ -27,7 +27,7 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
     private int _labelTextColour;
     private int _contentTextColour;
     private int _helperTextColour;
-    private int _backgroundColour;
+    private int _backgroundColour;      //Root view background colour
 
     private boolean _keepLabelSpacing;  //Whether or not spacing should be kept if there is no label text
     private boolean _keepHelperSpacing; //"                                   " if there is no helper text
@@ -84,10 +84,10 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
                 0, 0);
 
         //Misc
-        _keepLabelSpacing   = ta.getBoolean(R.styleable.MaterialTextView_mtv_keepLabelSpacing,
-                false);
-        _keepHelperSpacing  = ta.getBoolean(R.styleable.MaterialTextView_mtv_keepHelperSpacing,
-                false);
+        setKeepLabelSpacing(ta.getBoolean(R.styleable.MaterialTextView_mtv_keepLabelSpacing,
+                false));
+        setKeepHelperSpacing(ta.getBoolean(R.styleable.MaterialTextView_mtv_keepHelperSpacing,
+                false));
 
         //Text
         setLabelText(ta.getString(R.styleable.MaterialTextView_mtv_labelText) == null ? "" :
@@ -151,6 +151,16 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
     // SETTERS
     ////////////////////////////////////////////////////////////////////////////////////////////////
     @SuppressWarnings("unused")
+    public void setKeepLabelSpacing(boolean keepLabelSpacing){
+        _keepLabelSpacing = keepLabelSpacing;
+    }
+
+    @SuppressWarnings("unused")
+    public void setKeepHelperSpacing(boolean keepHelperSpacing){
+        _keepHelperSpacing = keepHelperSpacing;
+    }
+
+    @SuppressWarnings("unused")
     public void setBackgroundColour(int colour){
         _backgroundColour = colour;
         _rootView.getBackground().setColorFilter(new PorterDuffColorFilter(_backgroundColour,
@@ -199,6 +209,11 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
 
     // GETTERS
     ////////////////////////////////////////////////////////////////////////////////////////////////
+    @SuppressWarnings("unused")
+    public boolean getKeepLabelSpacing(){ return _keepLabelSpacing; }
+
+    @SuppressWarnings("unused")
+    public boolean getKeepHelperSpacing(){ return _keepHelperSpacing; }
 
     @SuppressWarnings("unused")
     public int getBackgroundColour(){
