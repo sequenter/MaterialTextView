@@ -29,7 +29,8 @@
         android:layout_marginEnd="@dimen/margin_large"
         android:layout_marginRight="@dimen/margin_large"
         android:layout_marginTop="@dimen/margin_large"
-        app:mtv_contentText="No Label, Keep Spacing" />
+        app:mtv_contentText="No Label, Keep Spacing"
+        app:mtv_keepLabelSpacing="true"/>
 
     <uk.co.onemandan.materialtextview.MaterialTextView
         android:layout_width="match_parent"
@@ -39,8 +40,7 @@
         android:layout_marginEnd="@dimen/margin_large"
         android:layout_marginRight="@dimen/margin_large"
         android:layout_marginTop="@dimen/margin_large"
-        app:mtv_contentText="No Label, Remove Spacing"
-        app:mtv_keepLabelSpacing="false"/>
+        app:mtv_contentText="No Label, Remove Spacing" />
 
     <LinearLayout
         android:layout_width="match_parent"

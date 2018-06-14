@@ -3,6 +3,7 @@
 
     <dimen name="margin_large">16dp</dimen>
     <dimen name="margin_small">8dp</dimen>
+    <dimen name="corner_radius">4dp</dimen>
     <dimen name="text_size_label_helper">12sp</dimen>
     <dimen name="text_size_content">18sp</dimen>
 

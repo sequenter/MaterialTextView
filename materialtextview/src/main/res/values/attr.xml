@@ -8,6 +8,7 @@
         <attr name="mtv_labelTextColor" format="color|reference" />
         <attr name="mtv_contentTextColor" format="color|reference" />
         <attr name="mtv_helperTextColor" format="color|reference" />
+        <attr name="mtv_backgroundColor" format="color|reference" />
         <attr name="mtv_keepLabelSpacing" format="boolean"/>
         <attr name="mtv_keepHelperSpacing" format="boolean"/>
     </declare-styleable>
