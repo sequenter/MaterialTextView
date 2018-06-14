@@ -59,6 +59,7 @@ dependencies {
 - Edited *mtv_keepLabelSpacing* default to **false**
 - Added *mtv_backgroundColour* and accessors
 - Added Label/Content/Helper text colour accessors
+- Added keep Label/Helper accessors
 
 ## Attributes & Methods
 
@@ -80,8 +81,8 @@ dependencies {
 #### Miscellaneous 
 | Attribute | Method Counterparts | Description | Default |
 | --------- | ------------------- | ----------- | ------- |
-| app:mtv_keepLabelSpacing | | In the event that the label text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
-| app:mtv_keepHelperSpacing | | In the event that the helper text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
+| app:mtv_keepLabelSpacing | ```void setKeepLabelSpacing(boolean keepLabelSpacing)``` </br> ```boolean getKeepLabelSpacing()``` | In the event that the label text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
+| app:mtv_keepHelperSpacing | ```void setKeepHelperSpacing(boolean keepLabelSpacing)``` </br> ```boolean getKeepHelperSpacing()``` | In the event that the helper text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
 
 #### Listeners
 You can implement a click listener to the MaterialTextView:
