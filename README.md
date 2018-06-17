@@ -61,6 +61,20 @@ dependencies {
 - Added Label/Content/Helper text colour accessors
 - Added keep Label/Helper accessors
 
+## Usage
+```
+<uk.co.onemandan.materialtextview.MaterialTextView
+  android:id="@+id/mtv_id"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  app:mtv_labelText="label"
+  app:mtv_contentText="content"
+  app:mtv_helperText="helper"
+  app:mtv_labelTextColour="?android:textColorSecondary"
+  app:mtv_contentTextColour="?android:textColorPrimary"
+  app:mtv_helperTextColour="?colorAccent"/>
+```
+
 ## Attributes & Methods
 
 #### Text
