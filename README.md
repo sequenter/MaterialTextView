@@ -29,7 +29,7 @@ allprojects {
 2. Add the dependency to your modules build.gradle :
 ```gradle
 dependencies {
-  implementation 'com.github.onemandan:MaterialTextView:0.0.1'
+  implementation 'com.github.onemandan:MaterialTextView:0.0.2'
 }
 ```
 
@@ -49,7 +49,7 @@ dependencies {
 <dependency>
   <groupId>com.github.onemandan</groupId>
   artifactId>MaterialTextView</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
 </dependency>
 ```
 
