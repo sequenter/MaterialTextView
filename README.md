@@ -62,7 +62,7 @@ dependencies {
 - Added keep Label/Helper accessors
 
 ## Usage
-```
+``` xml
 <uk.co.onemandan.materialtextview.MaterialTextView
   android:id="@+id/mtv_id"
   android:layout_width="wrap_content"
