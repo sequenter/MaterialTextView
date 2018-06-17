@@ -48,7 +48,7 @@ dependencies {
 ```xml
 <dependency>
   <groupId>com.github.onemandan</groupId>
-  artifactId>MaterialTextView</artifactId>
+  <artifactId>MaterialTextView</artifactId>
   <version>0.0.2</version>
 </dependency>
 ```
