@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <FrameLayout
+    <uk.co.onemandan.materialtextview.ClipView
         android:id="@+id/ll_mtv_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
 
         </LinearLayout>
 
-    </FrameLayout>
+    </uk.co.onemandan.materialtextview.ClipView>
 
     <TextView
         android:id="@+id/tv_mtv_helper"
