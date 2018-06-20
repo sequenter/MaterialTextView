@@ -29,7 +29,7 @@ allprojects {
 2. Add the dependency to your modules build.gradle :
 ```gradle
 dependencies {
-  implementation 'com.github.onemandan:MaterialTextView:0.0.1'
+  implementation 'com.github.onemandan:MaterialTextView:0.0.2'
 }
 ```
 
@@ -48,8 +48,8 @@ dependencies {
 ```xml
 <dependency>
   <groupId>com.github.onemandan</groupId>
-  artifactId>MaterialTextView</artifactId>
-  <version>0.0.1</version>
+  <artifactId>MaterialTextView</artifactId>
+  <version>0.0.2</version>
 </dependency>
 ```
 
@@ -59,6 +59,21 @@ dependencies {
 - Edited *mtv_keepLabelSpacing* default to **false**
 - Added *mtv_backgroundColour* and accessors
 - Added Label/Content/Helper text colour accessors
+- Added keep Label/Helper accessors
+
+## Usage
+``` xml
+<uk.co.onemandan.materialtextview.MaterialTextView
+  android:id="@+id/mtv_id"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  app:mtv_labelText="label"
+  app:mtv_contentText="content"
+  app:mtv_helperText="helper"
+  app:mtv_labelTextColour="?android:textColorSecondary"
+  app:mtv_contentTextColour="?android:textColorPrimary"
+  app:mtv_helperTextColour="?colorAccent"/>
+```
 
 ## Attributes & Methods
 
@@ -80,8 +95,8 @@ dependencies {
 #### Miscellaneous 
 | Attribute | Method Counterparts | Description | Default |
 | --------- | ------------------- | ----------- | ------- |
-| app:mtv_keepLabelSpacing | | In the event that the label text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
-| app:mtv_keepHelperSpacing | | In the event that the helper text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
+| app:mtv_keepLabelSpacing | ```void setKeepLabelSpacing(boolean keepLabelSpacing)``` </br> ```boolean getKeepLabelSpacing()``` | In the event that the label text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
+| app:mtv_keepHelperSpacing | ```void setKeepHelperSpacing(boolean keepLabelSpacing)``` </br> ```boolean getKeepHelperSpacing()``` | In the event that the helper text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
 
 #### Listeners
 You can implement a click listener to the MaterialTextView:
