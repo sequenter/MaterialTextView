@@ -54,6 +54,9 @@ dependencies {
 ```
 
 ## Updates
+#### 0.0.3
+- Added custom clip View for background
+- Edited current layout to use clip View, selectable ripple now respects rounded corners
 
 #### 0.0.2
 - Edited *mtv_keepLabelSpacing* default to **false**
