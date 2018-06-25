@@ -29,7 +29,7 @@ allprojects {
 2. Add the dependency to your modules build.gradle :
 ```gradle
 dependencies {
-  implementation 'com.github.onemandan:MaterialTextView:0.0.2'
+  implementation 'com.github.onemandan:MaterialTextView:0.0.4'
 }
 ```
 
@@ -49,11 +49,15 @@ dependencies {
 <dependency>
   <groupId>com.github.onemandan</groupId>
   <artifactId>MaterialTextView</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.4</version>
 </dependency>
 ```
 
 ## Updates
+#### 0.0.4
+- Added dense spacing, *mtv_useDenseSpacing* default to **false**
+- Added nullable animation to content text
+
 #### 0.0.3
 - Added custom clip View for background
 - Edited current layout to use clip View, selectable ripple now respects rounded corners
