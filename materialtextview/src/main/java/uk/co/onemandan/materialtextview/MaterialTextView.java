@@ -46,6 +46,8 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
 
     private OnClickListener _onClickListener;
 
+    public enum ANIMATE_TYPE { FADE, NONE }
+
     public MaterialTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
@@ -99,7 +101,7 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
         setLabelText(ta.getString(R.styleable.MaterialTextView_mtv_labelText) == null ? "" :
                 ta.getString(R.styleable.MaterialTextView_mtv_labelText));
         setContentText(ta.getString(R.styleable.MaterialTextView_mtv_contentText) == null ? "" :
-                ta.getString(R.styleable.MaterialTextView_mtv_contentText));
+                ta.getString(R.styleable.MaterialTextView_mtv_contentText), null);
         setHelperText(ta.getString(R.styleable.MaterialTextView_mtv_helperText) == null ? "" :
                 ta.getString(R.styleable.MaterialTextView_mtv_helperText));
 
@@ -200,9 +202,18 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
     }
 
     @SuppressWarnings("unused")
-    public void setContentText(CharSequence text){
+    public void setContentText(CharSequence text, @Nullable ANIMATE_TYPE animateType){
         _contentText = text;
-        _contentView.setText(_contentText);
+
+        if(animateType == null || animateType == ANIMATE_TYPE.NONE){
+            _contentView.setText(_contentText);
+        } else {
+            switch (animateType){
+                case FADE:
+                    AnimationUtilities.animFadeText(_contentView, _contentText);
+                    break;
+            }
+        }
     }
 
     @SuppressWarnings("unused")

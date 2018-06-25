@@ -21,7 +21,6 @@ public class Sample extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(Sample.this, "MaterialTextView Clicked",
                         Toast.LENGTH_LONG).show();
-                materialTextView.setUseDenseSpacing(true);
             }
         });
     }
