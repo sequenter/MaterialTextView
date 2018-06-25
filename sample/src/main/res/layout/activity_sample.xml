@@ -60,7 +60,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             app:mtv_labelText="Label Left"
-            app:mtv_contentText="Content Left"/>
+            app:mtv_contentText="Content Left"
+            app:mtv_useDenseSpacing="true"/>
 
         <uk.co.onemandan.materialtextview.MaterialTextView
             android:layout_width="0dp"

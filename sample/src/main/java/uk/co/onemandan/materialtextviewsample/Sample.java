@@ -14,13 +14,14 @@ public class Sample extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
 
-        MaterialTextView materialTextView = findViewById(R.id.mtv_sample);
+        final MaterialTextView materialTextView = findViewById(R.id.mtv_sample);
 
         materialTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Sample.this, "MaterialTextView Clicked",
                         Toast.LENGTH_LONG).show();
+                materialTextView.setUseDenseSpacing(true);
             }
         });
     }

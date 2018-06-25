@@ -1,12 +1,15 @@
 package uk.co.onemandan.materialtextview;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -31,6 +34,7 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
 
     private boolean _keepLabelSpacing;  //Whether or not spacing should be kept if there is no label text
     private boolean _keepHelperSpacing; //"                                   " if there is no helper text
+    private boolean _useDenseSpacing;   //Layout becomes smaller vertically
 
     //Default colours to use for each View
     private int _DEFAULT_LABEL_TEXT_COLOUR;     //android:textColorSecondary
@@ -87,6 +91,8 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
         setKeepLabelSpacing(ta.getBoolean(R.styleable.MaterialTextView_mtv_keepLabelSpacing,
                 false));
         setKeepHelperSpacing(ta.getBoolean(R.styleable.MaterialTextView_mtv_keepHelperSpacing,
+                false));
+        setUseDenseSpacing(ta.getBoolean(R.styleable.MaterialTextView_mtv_useDenseSpacing,
                 false));
 
         //Text
@@ -207,6 +213,26 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
         handleHelperVisibility();
     }
 
+    public void setUseDenseSpacing(boolean useDenseSpacing){
+        _useDenseSpacing = useDenseSpacing;
+
+        LayoutParams contentLayoutParams    = (LayoutParams) _contentView.getLayoutParams();
+        LayoutParams helperLayoutParams     = (LayoutParams) _helperView.getLayoutParams();
+        Resources resources                 = getContext().getResources();
+
+        contentLayoutParams.topMargin = resources.getDimensionPixelOffset(
+                useDenseSpacing ? R.dimen.margin_dense : R.dimen.margin_small);
+
+        helperLayoutParams.topMargin = resources.getDimensionPixelOffset(
+                useDenseSpacing ? R.dimen.margin_dense : R.dimen.margin_small);
+
+        _helperView.setLayoutParams(contentLayoutParams);
+        _contentView.setLayoutParams(contentLayoutParams);
+        _contentView.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(
+                useDenseSpacing ? R.dimen.text_size_content_dense : R.dimen.text_size_content
+        ));
+    }
+
     // GETTERS
     ////////////////////////////////////////////////////////////////////////////////////////////////
     @SuppressWarnings("unused")
@@ -243,4 +269,7 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
     public CharSequence getHelperText(){
         return _helperText;
     }
+
+    @SuppressWarnings("unused")
+    public Boolean getUseDenseSpacing(){ return _useDenseSpacing; }
 }
