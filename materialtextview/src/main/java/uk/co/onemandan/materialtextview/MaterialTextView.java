@@ -29,18 +29,22 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
 
     private int _labelTextColour;
     private int _contentTextColour;
+    private int _errorTextColour;
     private int _helperTextColour;
     private int _backgroundColour;      //Root view background colour
 
     private boolean _keepLabelSpacing;  //Whether or not spacing should be kept if there is no label text
     private boolean _keepHelperSpacing; //"                                   " if there is no helper text
     private boolean _useDenseSpacing;   //Layout becomes smaller vertically
+    private boolean _singleLine;        //Content text single line
+    private boolean _isErrord;          //Has had error set
 
     //Default colours to use for each View
     private int _DEFAULT_LABEL_TEXT_COLOUR;     //android:textColorSecondary
     private int _DEFAULT_CONTENT_TEXT_COLOUR;   //android:textColorPrimary
     private int _DEFAULT_HELPER_TEXT_COLOUR;    //colorAccent
     private int _DEFAULT_BACKGROUND_COLOUR;     //6% Black
+    private int _DEFAULT_ERROR_COLOUR;          //Red
 
     private Drawable _DEFAULT_CLICKABLE_FOREGROUND;
 
@@ -81,8 +85,11 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
         _DEFAULT_HELPER_TEXT_COLOUR   = ta.getColor(2, 0);
         _DEFAULT_CLICKABLE_FOREGROUND = ta.getDrawable(3);
         _DEFAULT_BACKGROUND_COLOUR    = context.getResources().getColor(R.color.TintBlack06);
+        _DEFAULT_ERROR_COLOUR         = context.getResources().getColor(R.color.ErrorRed);
 
         ta.recycle();
+
+        _isErrord = false;
     }
 
     private void handleAttributes(Context context, AttributeSet attrs){
@@ -96,14 +103,16 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
                 false));
         setUseDenseSpacing(ta.getBoolean(R.styleable.MaterialTextView_mtv_useDenseSpacing,
                 false));
+        setSingleLine(ta.getBoolean(R.styleable.MaterialTextView_mtv_singleLine,
+                false));
 
         //Text
         setLabelText(ta.getString(R.styleable.MaterialTextView_mtv_labelText) == null ? "" :
                 ta.getString(R.styleable.MaterialTextView_mtv_labelText));
-        setContentText(ta.getString(R.styleable.MaterialTextView_mtv_contentText) == null ? "" :
-                ta.getString(R.styleable.MaterialTextView_mtv_contentText), null);
         setHelperText(ta.getString(R.styleable.MaterialTextView_mtv_helperText) == null ? "" :
                 ta.getString(R.styleable.MaterialTextView_mtv_helperText));
+        setContentText(ta.getString(R.styleable.MaterialTextView_mtv_contentText) == null ? "" :
+                ta.getString(R.styleable.MaterialTextView_mtv_contentText), null);
 
         //Colours
         setLabelTextColour(ta.getColor(R.styleable.MaterialTextView_mtv_labelTextColor,
@@ -114,12 +123,14 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
                 _DEFAULT_HELPER_TEXT_COLOUR));
         setBackgroundColour(ta.getColor(R.styleable.MaterialTextView_mtv_backgroundColor,
                 _DEFAULT_BACKGROUND_COLOUR));
+        setErrorTextColour(ta.getColor(R.styleable.MaterialTextView_mtv_errorTextColor,
+                _DEFAULT_ERROR_COLOUR));
 
         ta.recycle();
     }
 
-    private void handleHelperVisibility(){
-        if(_helperText.length() == 0 && !_keepHelperSpacing && _helperView.getVisibility() != View.GONE){
+    private void handleHelperVisibility(CharSequence text){
+        if(text.length() == 0 && !_keepHelperSpacing && _helperView.getVisibility() != View.GONE){
             _helperView.setVisibility(View.GONE);
         } else if (_helperView.getVisibility() != View.VISIBLE){
             _helperView.setVisibility(View.VISIBLE);
@@ -156,44 +167,68 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
         _onClickListener = l;
     }
 
+    public void setError(@Nullable CharSequence error){
+        if(error == null){
+            _isErrord = false;
+
+            _labelView.setTextColor(_labelTextColour);
+            _helperView.setTextColor(_helperTextColour);
+            _helperView.setText(_helperText);
+
+            handleHelperVisibility(_helperText);
+
+        } else {
+            _isErrord = true;
+
+            _labelView.setTextColor(_errorTextColour);
+            _helperView.setTextColor(_errorTextColour);
+            _helperView.setText(error);
+
+            handleHelperVisibility(error);
+        }
+    }
+
     // SETTERS
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    @SuppressWarnings("unused")
     public void setKeepLabelSpacing(boolean keepLabelSpacing){
         _keepLabelSpacing = keepLabelSpacing;
     }
 
-    @SuppressWarnings("unused")
     public void setKeepHelperSpacing(boolean keepHelperSpacing){
         _keepHelperSpacing = keepHelperSpacing;
     }
 
-    @SuppressWarnings("unused")
     public void setBackgroundColour(int colour){
         _backgroundColour = colour;
         _rootView.getBackground().setColorFilter(new PorterDuffColorFilter(_backgroundColour,
                 PorterDuff.Mode.SRC_IN));
     }
 
-    @SuppressWarnings("unused")
     public void setLabelTextColour(int colour){
         _labelTextColour = colour;
-        _labelView.setTextColor(_labelTextColour);
+
+        if(!_isErrord) {
+            _labelView.setTextColor(_labelTextColour);
+        }
     }
 
-    @SuppressWarnings("unused")
     public void setContentTextColour(int colour){
         _contentTextColour = colour;
         _contentView.setTextColor(_contentTextColour);
     }
 
-    @SuppressWarnings("unused")
-    public void setHelperTextColour(int colour){
-        _helperTextColour = colour;
-        _helperView.setTextColor(_helperTextColour);
+    public void setErrorTextColour(int colour){
+        _errorTextColour = colour;
     }
 
-    @SuppressWarnings("unused")
+    public void setHelperTextColour(int colour){
+        _helperTextColour = colour;
+
+        if(!_isErrord){
+            _helperView.setTextColor(_helperTextColour);
+        }
+    }
+
     public void setLabelText(CharSequence text){
         _labelText = text;
         _labelView.setText(_labelText);
@@ -201,9 +236,10 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
         handleLabelVisibility();
     }
 
-    @SuppressWarnings("unused")
     public void setContentText(CharSequence text, @Nullable ANIMATE_TYPE animateType){
-        _contentText = text;
+        _contentText    = text;
+
+        setError(null);
 
         if(animateType == null || animateType == ANIMATE_TYPE.NONE){
             _contentView.setText(_contentText);
@@ -216,12 +252,11 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
         }
     }
 
-    @SuppressWarnings("unused")
     public void setHelperText(CharSequence text){
         _helperText = text;
         _helperView.setText(_helperText);
 
-        handleHelperVisibility();
+        handleHelperVisibility(_helperText);
     }
 
     public void setUseDenseSpacing(boolean useDenseSpacing){
@@ -244,6 +279,11 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
         ));
     }
 
+    public void setSingleLine(boolean singleLine){
+        _singleLine = singleLine;
+        _contentView.setMaxLines(_singleLine ? 1 : Integer.MAX_VALUE);
+    }
+
     // GETTERS
     ////////////////////////////////////////////////////////////////////////////////////////////////
     @SuppressWarnings("unused")
@@ -262,6 +302,9 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
 
     @SuppressWarnings("unused")
     public int getContentTextColour(){ return _contentTextColour; }
+
+    @SuppressWarnings("unused")
+    public int getErrorTextColour(){ return _errorTextColour; }
 
     @SuppressWarnings("unused")
     public int getHelperTextColour(){ return _helperTextColour; }
@@ -283,4 +326,7 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
 
     @SuppressWarnings("unused")
     public Boolean getUseDenseSpacing(){ return _useDenseSpacing; }
+
+    @SuppressWarnings("unused")
+    public Boolean getSingleLine(){ return _singleLine; }
 }

@@ -7,12 +7,14 @@
         <attr name="mtv_helperText"         format="string" />
         <attr name="mtv_labelTextColor"     format="color|reference" />
         <attr name="mtv_contentTextColor"   format="color|reference" />
+        <attr name="mtv_errorTextColor"     format="color|reference" />
         <attr name="mtv_helperTextColor"    format="color|reference" />
         <attr name="mtv_backgroundColor"    format="color|reference" />
         <attr name="mtv_animationDuration"  format="integer|reference" />
         <attr name="mtv_keepLabelSpacing"   format="boolean"/>
         <attr name="mtv_keepHelperSpacing"  format="boolean"/>
         <attr name="mtv_useDenseSpacing"    format="boolean" />
+        <attr name="mtv_singleLine"         format="boolean" />
     </declare-styleable>
 
 </resources>

@@ -35,6 +35,7 @@
                 android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginBottom="@dimen/margin_small"
                 android:textSize="@dimen/text_size_content"
+                android:ellipsize="marquee"
                 android:textColor="?android:textColorPrimary"/>
 
         </LinearLayout>

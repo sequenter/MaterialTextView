@@ -9,6 +9,8 @@ import uk.co.onemandan.materialtextview.MaterialTextView;
 
 public class Sample extends AppCompatActivity {
 
+    private boolean _error = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +21,13 @@ public class Sample extends AppCompatActivity {
         materialTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Sample.this, "MaterialTextView Clicked",
-                        Toast.LENGTH_LONG).show();
+                _error = !_error;
+
+                if(_error){
+                    materialTextView.setError("Error!");
+                } else {
+                    materialTextView.setError(null);
+                }
             }
         });
     }

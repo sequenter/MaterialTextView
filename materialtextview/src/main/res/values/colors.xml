@@ -2,5 +2,6 @@
 <resources>
 
     <color name="TintBlack06">#0f000000</color>
+    <color name="ErrorRed">#FF1744</color>
 
 </resources>
