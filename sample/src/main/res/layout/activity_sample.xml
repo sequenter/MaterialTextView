@@ -54,14 +54,14 @@
         android:orientation="horizontal">
 
         <uk.co.onemandan.materialtextview.MaterialTextView
+            android:id="@+id/mtv_sample2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             app:mtv_labelText="Label Left"
-            app:mtv_contentText="Content Leftttttttt"
-            app:mtv_singleLine="true"/>
+            app:mtv_contentText="Content Left" />
 
         <uk.co.onemandan.materialtextview.MaterialTextView
             android:layout_width="0dp"
@@ -73,5 +73,17 @@
             app:mtv_contentText="Content Right" />
 
     </LinearLayout>
+
+    <uk.co.onemandan.materialtextview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginLeft="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginRight="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_large"
+        app:mtv_labelText="Single Line"
+        app:mtv_contentText="The Quick Brown Fox Jumps OverThe Lazy Dog"
+        app:mtv_singleLine="true"/>
 
 </LinearLayout>

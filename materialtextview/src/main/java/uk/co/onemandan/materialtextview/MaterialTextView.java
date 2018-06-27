@@ -130,16 +130,20 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
     }
 
     private void handleHelperVisibility(CharSequence text){
-        if(text.length() == 0 && !_keepHelperSpacing && _helperView.getVisibility() != View.GONE){
-            _helperView.setVisibility(View.GONE);
-        } else if (_helperView.getVisibility() != View.VISIBLE){
+        if(text.length() == 0 && !_keepHelperSpacing){
+            if(_helperView.getVisibility() != View.GONE){
+                _helperView.setVisibility(View.GONE);
+            }
+        } else if (_helperView.getVisibility() != View.VISIBLE) {
             _helperView.setVisibility(View.VISIBLE);
         }
     }
 
     private void handleLabelVisibility(){
-        if(_labelText.length() == 0 && !_keepLabelSpacing && _labelView.getVisibility() != View.GONE){
-            _labelView.setVisibility(View.GONE);
+        if(_labelText.length() == 0 && !_keepLabelSpacing){
+            if(_labelView.getVisibility() != View.GONE) {
+                _labelView.setVisibility(View.GONE);
+            }
         } else if(_labelView.getVisibility() != View.VISIBLE){
             _labelView.setVisibility(View.VISIBLE);
         }
@@ -172,6 +176,7 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
             _isErrord = false;
 
             _labelView.setTextColor(_labelTextColour);
+            _contentView.setTextColor(_contentTextColour);
             _helperView.setTextColor(_helperTextColour);
             _helperView.setText(_helperText);
 
@@ -181,6 +186,7 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
             _isErrord = true;
 
             _labelView.setTextColor(_errorTextColour);
+            _contentView.setTextColor(_errorTextColour);
             _helperView.setTextColor(_errorTextColour);
             _helperView.setText(error);
 
@@ -329,4 +335,7 @@ public class MaterialTextView extends LinearLayout implements View.OnClickListen
 
     @SuppressWarnings("unused")
     public Boolean getSingleLine(){ return _singleLine; }
+
+    @SuppressWarnings("unused")
+    public Boolean getError(){ return _isErrord; }
 }
