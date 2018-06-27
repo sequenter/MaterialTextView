@@ -54,6 +54,12 @@ dependencies {
 ```
 
 ## Updates
+#### 0.0.5
+- Added ability to set error, *mtv_errorTextColour* default to **FF1744 (A400 Red)**
+- Added single line, sets maxLine of content to 1 (or Integer.MAX_VALUE if false), default to **false**
+- Error gets turned off after *setContentText*, or by passing **null** to *setError*
+- Passing an empty string to *setError* keeps current settings of helper text
+
 #### 0.0.4
 - Added dense spacing, *mtv_useDenseSpacing* default to **false**
 - Added nullable animation to content text
@@ -97,6 +103,7 @@ dependencies {
 | app:mtv_labelTextColour | ```void setLabelTextColour(int colour)``` </br> ```int getLabelTextColour()``` | The text colour for the label at the top of the view | ?android:textColorSecondary |
 | app:mtv_contenxtTextColour | ```void setContentTextColour(int colour)``` </br> ```int getContentTextColour()``` | The text colour for the content of the view | ?android:textColorPrimary |
 | app:mtv_helperTextColour | ```void setHelperTextColour(int colour)``` </br> ```int getHelperTextColour()``` | The text colour for the helper at the bottom of the view | ?colorAccent |
+| app:mtv_errorTextColor | ```void setErrorTextColour(int colour)``` </br> ```int getErrorTextColour``` | The text colour of the label and helper text when using setError | A400 Red (#FF1744) |
 | app:mtv_backgroundColour | ```void setBackgroundColour(int colour)``` </br> ```int getBackgroundColour()``` | The colour of the MaterialTextView root view | 6% Black (#0f000000) |
 
 #### Miscellaneous 
@@ -105,6 +112,7 @@ dependencies {
 | app:mtv_keepLabelSpacing | ```void setKeepLabelSpacing(boolean keepLabelSpacing)``` </br> ```boolean getKeepLabelSpacing()``` | In the event that the label text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
 | app:mtv_keepHelperSpacing | ```void setKeepHelperSpacing(boolean keepLabelSpacing)``` </br> ```boolean getKeepHelperSpacing()``` | In the event that the helper text is empty, whether or not the spacing should be kept by setting the respective TextView to *GONE* or *VISIBLE* | false |
 | app:mtv_useDenseSpacing | ```void setUseDenseSpacing(boolean useDenseSpacing)``` </br> ```boolean getUseDenseSpacing()``` | Use denser vertical spacing for smaller displays | false |
+| app:mtv_singleLine | ```void setSingleLine(boolean singleLine)``` </br> ```boolean getSingleLine()``` | Sets content text maxLines to **1** or **Integer.MAX_VALUE** depending on boolean | false |
 
 #### Listeners
 You can implement a click listener to the MaterialTextView:
