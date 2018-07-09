@@ -29,7 +29,7 @@ allprojects {
 2. Add the dependency to your modules build.gradle :
 ```gradle
 dependencies {
-  implementation 'com.github.onemandan:MaterialTextView:0.0.4'
+  implementation 'com.github.onemandan:MaterialTextView:0.0.5'
 }
 ```
 
@@ -49,7 +49,7 @@ dependencies {
 <dependency>
   <groupId>com.github.onemandan</groupId>
   <artifactId>MaterialTextView</artifactId>
-  <version>0.0.4</version>
+  <version>0.0.5</version>
 </dependency>
 ```
 
@@ -101,7 +101,7 @@ dependencies {
 | Attribute | Method Counterparts | Description | Default |
 | --------- | ------------------- | ----------- | ------- |
 | app:mtv_labelTextColour | ```void setLabelTextColour(int colour)``` </br> ```int getLabelTextColour()``` | The text colour for the label at the top of the view | ?android:textColorSecondary |
-| app:mtv_contenxtTextColour | ```void setContentTextColour(int colour)``` </br> ```int getContentTextColour()``` | The text colour for the content of the view | ?android:textColorPrimary |
+| app:mtv_contentTextColour | ```void setContentTextColour(int colour)``` </br> ```int getContentTextColour()``` | The text colour for the content of the view | ?android:textColorPrimary |
 | app:mtv_helperTextColour | ```void setHelperTextColour(int colour)``` </br> ```int getHelperTextColour()``` | The text colour for the helper at the bottom of the view | ?colorAccent |
 | app:mtv_errorTextColor | ```void setErrorTextColour(int colour)``` </br> ```int getErrorTextColour``` | The text colour of the label and helper text when using setError | A400 Red (#FF1744) |
 | app:mtv_backgroundColour | ```void setBackgroundColour(int colour)``` </br> ```int getBackgroundColour()``` | The colour of the MaterialTextView root view | 6% Black (#0f000000) |
